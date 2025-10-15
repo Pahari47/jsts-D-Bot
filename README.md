@@ -1,71 +1,96 @@
-Message Search Bot
+# Message Search Bot
 
-A simple bot and REST API to search messages across all channels in a Discord server.
+A simple Discord bot and REST API that searches messages across all text channels in a server.
 
-Features
+---
 
-Search messages containing a specific keyword.
+## Features
 
-Works via Discord command or REST API.
+* Search messages containing a specific keyword.
+* Accessible via Discord command or REST API.
+* Built with Node.js, Express, and Discord.js v14.
 
-Uses Node.js, Express, and Discord.js v14.
+---
 
-Setup
+## Setup
 
-Clone and install
+### 1. Clone and Install
 
+```bash
 git clone https://github.com/Pahari47/jsts-D-Bot.git
 cd jsts-D-Bot
 npm install
+```
 
+### 2. Create `.env` File
 
-Create .env
-
+```bash
 DISCORD_TOKEN=your_discord_bot_token
 PORT=3000
+```
 
+### 3. Run the Bot
 
-Run
-
+```bash
 node index.js
+```
 
-Discord Command
+---
+
+## Discord Command
+
+```
 !search <keyword> <min_length>
+```
 
+**Example**
 
-Example:
-
+```
 !search hello 0
+```
 
-REST API
+---
 
-POST /search-messages
+## REST API
 
+**POST** `/search-messages`
+
+**Request Body**
+
+```json
 {
   "guildId": "YOUR_GUILD_ID",
   "word": "pikachu",
   "limit": 80
 }
+```
 
+**Response**
 
-Response
-
+```json
 {
   "results": [
-    { "id": "123", "content": "I love Pikachu", "channel": "general" }
+    {
+      "id": "123",
+      "content": "I love Pikachu",
+      "channel": "general"
+    }
   ]
 }
+```
 
-Permissions
+---
 
-The bot must have:
+## Required Permissions
 
-View Channels
+* View Channels
+* Read Message History
+* Send Messages
 
-Read Message History
+---
 
-Send Messages
+## License
 
-License
+This project is licensed under the MIT License.
 
-MIT License
+---
